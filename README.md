@@ -32,7 +32,7 @@
 ##Set
     (us-east-1) help set
     set region <region>             Sets the current region. Must be an AWS region name
-    (us-east-1)
+
 
 ##TODO
 - Implement RDS security groups
