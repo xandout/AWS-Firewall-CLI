@@ -24,6 +24,7 @@ class AWSShell(cmd.Cmd):
                 aws_secret_access_key=self.aws_secret_access_key,
                 region_name=self.region_name
             )
+        self.regions = self.aws_session.get_available_regions('ec2')
         self.setprompt(self.region_name)
 
     def setprompt(self, arg):
@@ -44,11 +45,15 @@ class AWSShell(cmd.Cmd):
             print "*** {} - Unknown item ***\n{}".format(item, e)
 
     def set_region(self, arg):
-        self.__init__(
-            aws_access_key_id=self.aws_access_key_id,
-            aws_secret_access_key=self.aws_secret_access_key,
-            region_name=arg[0]
-        )
+        if arg[0] in self.regions:
+            self.__init__(
+                aws_access_key_id=self.aws_access_key_id,
+                aws_secret_access_key=self.aws_secret_access_key,
+                region_name=arg[0]
+            )
+        else:
+            print("Invalid region name '{}'. ".format(arg[0]))
+            print("\nValid regions are {}".format("\n\t".join(self.regions)))
 
     def do_EOF(self, line):
         print "\n"
