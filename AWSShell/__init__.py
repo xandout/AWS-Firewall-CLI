@@ -111,6 +111,13 @@ class AWSShell(cmd.Cmd):
         print("Example: add rule sg-1234567 192.168.1.42/32 icmp all")
         print("Example: add rule sg-1234567 0.0.0.0/0 all all")
 
+    def help_del(self):
+        print("del rule <group-id> <cidr> <protocol> <port-range>\t\tRemoves an inbound rule from the specified group.")
+        print("Example: del rule sg-1234567 192.168.1.42/32 6 80")
+        print("Example: del rule sg-1234567 192.168.1.42/32 tcp all")
+        print("Example: del rule sg-1234567 192.168.1.42/32 icmp all")
+        print("Example: del rule sg-1234567 0.0.0.0/0 all all")
+
     def do_add(self, arg):
         parsed = parse(arg)
         item = parsed[0]

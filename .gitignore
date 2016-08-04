@@ -5,3 +5,6 @@
 .idea/workspace.xml
 
 .idea/
+
+AWSShell/*.pyc
+
