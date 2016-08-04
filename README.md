@@ -6,7 +6,7 @@
         aws_access_key_id="KEY",
         aws_secret_access_key="SECRET",
         region_name="us-east-1").cmdloop()
-    )
+    ).cmdloop()
 
 ##Show
     (us-east-1) help show
